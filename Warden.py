@@ -6,7 +6,6 @@ import json
 import time
 import discord
 import discord.ext
-import interactions
 from solana.keypair import Keypair
 from solana.publickey import PublicKey
 from solana.rpc.api import Client
@@ -37,7 +36,7 @@ async def cmid_mint(ctx, private_key: str, cmid:str, amount:int, rpc:str):
         SYSTEM_INSTRUCTIONS_PROGRAM = 'Sysvar1nstructions1111111111111111111111111'
         TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
         ASSOCIATED_TOKEN_ID = 'ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL'
-        CANDY_MACHINE_PROGRAM_ID = 'cndyAnrLdpjq1Ssp1z8xxDsB8dxe7u4HL5Nxi2K5WXZ'
+        CANDY_MACHINE_PROGRAM_ID = 'cndy3Z4yapfJBmL3ShUp5exZKqR3z33thTzeNMm2gRZ'
         SOLANA_CLIENT = Client(RPC_ADDRESS,timeout=120)
         METADATA_PUBLIC_KEY = 'metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s'
         SYSTEM_PROGRAM_ID = '11111111111111111111111111111111'
@@ -101,7 +100,7 @@ async def cmid_mint(ctx, private_key: str, cmid:str, amount:int, rpc:str):
  
             anchorProgram = program
  
-            candyMachine = await anchorProgram.account['CandyMachine'].fetch(candyMachineAddress)
+            candyMachine = anchorProgram.account['CandyMachine'].fetch(candyMachineAddress)
  
             await program.close()
             return candyMachine.wallet
@@ -173,7 +172,7 @@ async def cmid_mint(ctx, private_key: str, cmid:str, amount:int, rpc:str):
  
             anchorProgram = program
  
-            candyMachine = await anchorProgram.account['CandyMachine'].fetch(candyMachineAddress)
+            candyMachine = anchorProgram.account['CandyMachine'].fetch(candyMachineAddress)
  
             await program.close()
             ts = time.time()
@@ -247,7 +246,7 @@ async def cmid_mint(ctx, private_key: str, cmid:str, amount:int, rpc:str):
         print('[' + datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S') + '] '  + '\033[92m' + 'Overseer Sent TX: ' + str(txn_response['result']) + '\033[0m')
     except Exception as e:
         print(e)
-        print(e.with_traceback())
 
-client.run('MTAwNzA1ODI1ODIzMTU1ODIyOA.GHdlmZ.J85jdb-bCDqYK8RyP7NoG4TvdN07QHo2pLZty8')
 print("Client Started")
+client.run('MTAwNzA1ODI1ODIzMTU1ODIyOA.GHdlmZ.J85jdb-bCDqYK8RyP7NoG4TvdN07QHo2pLZty8')
+

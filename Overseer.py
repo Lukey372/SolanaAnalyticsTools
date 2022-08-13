@@ -3,8 +3,7 @@ from discord.ext import commands
 from discord import Webhook, AsyncWebhookAdapter
 from dataclasses import dataclass
 from discord_slash import SlashCommand
-#need to switch to version 3.7 of python for this to work
-#view selection manager then pick 3.7.9
+
 @dataclass
 class Collection:
     name: str
@@ -28,7 +27,6 @@ async def on_command_error(ctx, error):
         print("Overseer Command Fail")
 
 @slash.slash(description="Kicks a member from the Server.")
-@commands.has_permissions(administrator=True)
 async def kick(ctx, user: discord.Member, *, reason="none"):
     try:
         await ctx.guild.kick(user)    
@@ -42,7 +40,6 @@ async def kick(ctx, user: discord.Member, *, reason="none"):
         print('Overseer Unable to Kick User')
 
 @slash.slash(description="Bans a member from the server.")
-@commands.has_permissions(administrator=True)
 async def ban(ctx, user: discord.Member, *, reason="none"):
     try:
         await ctx.guild.ban(user)    
@@ -56,7 +53,6 @@ async def ban(ctx, user: discord.Member, *, reason="none"):
         print('Overseer Unable to Ban User')
 
 @slash.slash(description="Clears channel and replaces it.")
-@commands.has_permissions(administrator=True)
 async def clear(ctx, channel: discord.TextChannel = None):
     if channel == None: 
         await ctx.send("Invalid Channel")
@@ -76,7 +72,6 @@ async def clear(ctx, channel: discord.TextChannel = None):
         print(f"Overseer failed clear, invalid channel")
 
 @slash.slash(description="Returns info on a launchmynft mint.")
-@commands.has_permissions(administrator=True)
 async def checkcreator(ctx, url:str):
     info = url.split("/")
     index = len(info) - 2
@@ -133,7 +128,6 @@ async def lmnft(ctx, url:str):
         print("Overseer failed to scrape info -> possible next update")
 
 @slash.slash(description="Starts famous fox raffle watcher.")
-@commands.has_permissions(administrator=True)
 async def start_raffle_watch(ctx):
     try:
         while True:
@@ -199,7 +193,6 @@ async def start_raffle_watch(ctx):
         print("User tried to execute without admin.")
   
 @slash.slash(description="Starts magic eden pumpwatch.")
-@commands.has_permissions(administrator=True)
 async def pumpwatch5m(ctx):
     try:
         while True:
@@ -238,7 +231,6 @@ async def pumpwatch5m(ctx):
         print("User tried to execute without admin.")
 
 @slash.slash(description="Starts magic eden pumpwatch.")
-@commands.has_permissions(administrator=True)
 async def pumpwatch10m(ctx):
     try:
         while True:
@@ -268,7 +260,7 @@ async def pumpwatch10m(ctx):
                 e.set_footer(text="Created by colley#8131")
                 if collections[second_count].volume > 10 and (collections[second_count].floor / 1000000000) != collections[second_count].volume and collections[second_count].volume - (collections[second_count].floor / 1000000000) > 1:
                     async with aiohttp.ClientSession() as session:
-                        webhook = Webhook.from_url('https://discord.com/api/webhooks/1005635289387110460/YvcD_FRAsuCMwRSD2Lo317FUQgCiMns2U1jVt8g23EJaktkKlgGBq0BBy9RwWF6Z9qsl', adapter=AsyncWebhookAdapter(session))
+                        webhook = Webhook.from_url('https://discord.com/api/webhooks/1007806571302092831/BZ6LaTvBJMA5Wvtdpr4y8xJZc4UUQNJEkreiw_NenMXpaoyica-bDmrMGLwT1K_mvMJ9', adapter=AsyncWebhookAdapter(session))
                         await webhook.send(embed=e)
                         print('Pump Alert Sent')
                 second_count+=1
@@ -277,7 +269,6 @@ async def pumpwatch10m(ctx):
         print("User tried to execute without admin.")
 
 @slash.slash(description="Starts magic eden pumpwatch.")
-@commands.has_permissions(administrator=True)
 async def dailysol(ctx, bearer:str):
     count = 0
     headers = {
