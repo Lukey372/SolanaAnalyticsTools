@@ -15,7 +15,6 @@ info = db['Wallets']
 async def on_ready():
     print('Bot Online')
 
-#Done, working, needs embeds
 @slash.slash(description="Submits user's wallet")
 async def submit(ctx, wallet:str):
     query = {"id": f"{ctx.author_id}"}
@@ -33,7 +32,6 @@ async def submit(ctx, wallet:str):
     except Exception as e:
         print(e)
 
-#Done, working, needs embed
 @slash.slash(description="Returns the submitted wallet")
 async def check(ctx):
     query = {"id": f"{ctx.author_id}"}
@@ -49,7 +47,6 @@ async def check(ctx):
     except Exception as e:
         print(e)
 
-#Done, working, needs embed
 @slash.slash(description="Remove submitted wallet")
 async def delete(ctx):
     query = {"id": f"{ctx.author_id}"}
@@ -64,7 +61,6 @@ async def delete(ctx):
     except Exception as e:
         print(e)
 
-#Done, working, needs embed
 @slash.slash(description="[ADMIN] Returns user's wallet to developer.")
 async def get(ctx, id:str):
     query = {"id": f"{id}"}
