@@ -29,7 +29,7 @@ async def submit(ctx, wallet:str):
         else:
             new_wallet = { "id": f"{ctx.author_id}", "address": f"{wallet}" }
             info.insert_one(new_wallet)
-            await ctx.send(f"```Wallet: {wallet} submitted for {ctx.author}```", hidden=True)
+            await ctx.send(f"```{wallet} submitted for {ctx.author}```", hidden=True)
 
     except Exception as e:
         print(e)
@@ -76,9 +76,10 @@ async def get(ctx, id:str):
             await ctx.send(f"```User has not submitted a wallet```", hidden=True)
         else:
             wallet_return = result[0]['address'].replace("'","")
-            await ctx.send(f"```Wallet for {id}: {wallet_return}```", hidden=True)
+            await ctx.send(f"```{wallet_return}```", hidden=True)
     except Exception as e:
         print(e)
+
 
 #Implement this later
 #@slash.slash(description="[ADMIN] Starts giveaway")
