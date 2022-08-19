@@ -1,4 +1,3 @@
-from tkinter import HIDDEN
 import discord, pymongo, requests, aiohttp, time, asyncio, dataclasses
 from discord.ext import commands
 from discord import Webhook, AsyncWebhookAdapter
@@ -66,7 +65,7 @@ async def delete(ctx):
         print(e)
 
 #Done, working, needs embed
-@slash.slash(description="[DEV] Returns user's wallet to developer.")
+@slash.slash(description="[ADMIN] Returns user's wallet to developer.")
 async def get(ctx, id:str):
     query = {"id": f"{id}"}
     do_query = info.find(query, {"_id": 0, "id": 0 })
@@ -80,6 +79,17 @@ async def get(ctx, id:str):
     except Exception as e:
         print(e)
 
+@slash.slash(description="[ADMIN] Returns all submitted wallets as a text file")
+async def txt(ctx):
+    data = info.find({}, {"_id": 0, "id": 0})
+    result = list(data)
+
+    with open("./result.txt", "w") as file:
+        for i in range(len(result)):
+            file.write(str(result[i]['address']).replace(",","")+ "\n")
+
+    with open("./result.txt", "rb") as file:
+            await ctx.send("```Address File:```", file=discord.File(file, "./result.txt"), hidden=True)
 
 #Implement this later
 #@slash.slash(description="[ADMIN] Starts giveaway")
