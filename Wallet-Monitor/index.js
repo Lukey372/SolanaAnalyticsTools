@@ -79,6 +79,9 @@ const getImage = async (mint) => {
         ]
         const { data } = await axios.post(url, { mintAccounts: nftAddresses} )
         let image = data[0].offChainData.image
+        if (image === undefined){
+            image = ""
+        }
         return image
     }
     catch (err) {

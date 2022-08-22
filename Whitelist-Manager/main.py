@@ -87,9 +87,5 @@ async def txt(ctx):
     with open("./result.txt", "rb") as file:
             await ctx.send("```Address File:```", file=discord.File(file, "./result.txt"), hidden=True)
 
-#Implement this later
-#@slash.slash(description="[ADMIN] Starts giveaway")
-#async def startgiveaway(ctx, wallet:str):
-
 client.run('MTAxMDE5NTUyNjYwNTYxNTIwNA.GRghpd.boPfQY2ZANM9JUe9o4AjfL6oa6lEumStdq0g1E')
 
