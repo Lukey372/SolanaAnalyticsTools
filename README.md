@@ -1,9 +1,9 @@
 Instructions:
 
 Requirements:
-Webhook for Raffle: Replace in line 186 of overseer.py
-Webhook for 5m Pumpwatch: Replace in line 234 of overseer.py
-Webhook for 10m Pumpwatch: Replace in line 274 of overseer.py
+Webhook for Raffle: Replace in line 186 of overseer.py<br />
+Webhook for 5m Pumpwatch: Replace in line 234 of overseer.py<br />
+Webhook for 10m Pumpwatch: Replace in line 274 of overseer.py<br />
 
 Bot Permissions:
 application.commands
