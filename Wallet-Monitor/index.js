@@ -114,7 +114,7 @@ async function main() {
     console.log('\x1b[34m%s\x1b[0m', `Loaded Config: \nName: ${name}\nWebhook: ${webhook}\nWallet: ${wallet}\n====================================================================================================================\n`)
     init()
     //add zero back after test
-    setInterval(startMonitor, 150000)
+    setInterval(startMonitor, 240000)
 }
 
 main()
