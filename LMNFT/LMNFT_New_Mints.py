@@ -16,7 +16,7 @@ init(autoreset=True, convert=True)
 def get_new():
     while True:
         logging.info(Fore.LIGHTBLUE_EX + 'Monitoring . . . ')
-        found_collections = open('found.txt').read()
+        found_collections = open('./found.txt').read()
 
 
         data = requests.post('https://search.launchmynft.io/indexes/collections/search', json={"facetsDistribution":["type"],"attributesToCrop":["description:50"],"filter":[["type=\"Solana\""],"soldOut = false"],"attributesToHighlight":["*"],"limit":200,"sort":["deployed:desc"],"q":""}, headers={'X-Meili-API-Key': '3ee2cafe84ad0f0a28b2e8aea31df1f0e7adeed45973b24f0ab60307da150383'}, timeout=5).json()
@@ -57,7 +57,7 @@ def get_new():
                 LaunchDate - <t:{collection_seconds_unix}>
                 Deployed - <t:{deployment_seconds_unix}>
                 """
-                webhook = DiscordWebhook(url='https://discord.com/api/webhooks/1005874478980542644/2f7Jv4Dp8O0IYgjGLQ9YUSQ4ByZ4oICOajjpgqukV2hsPxZT5eN1ACxC-SXCUvXRyur3')
+                webhook = DiscordWebhook(url='https://discord.com/api/webhooks/1012223423826645092/m5RlSuASPWEU9R3SpvK4TOqpj-SLjkieNBbVPg7KjCkClsmKer64jlJnQO4I9YeymYPi')
                 embed = DiscordEmbed(title='New LMNFT Collection', description=str(hook_d), color='0000')
                 embed.set_timestamp()
                 embed.set_thumbnail(url=cover_image)
