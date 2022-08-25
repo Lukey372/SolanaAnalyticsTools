@@ -11,13 +11,13 @@ Bot
 Administrator
 
 Commands:
-/checkcreator (link to lmnft collection) - Returns the creator of a LaunchMyNft Collection, this command exists to stop people from shilling their own mints in dao chats. \n
-/tps - Returns the current Solana TPS \n
-/lmnft (link to lmnft collection) - Scrapes relevant information about a LaunchMyNft Collection. \n
-/start_raffle_watch - Starts the FFF raffle watch and begins sending embeds to the webhook. \n
-/pumpwatch5m - Starts 5m pumpwatch \n
-/pumpwatch10m - Starts 10m pumpwatch \n
-/dailysol (bearer) - Scrapes daily mints from SOLDecoder \n
+/checkcreator (link to lmnft collection) - Returns the creator of a LaunchMyNft Collection, this command exists to stop people from shilling their own mints in dao chats. <br />
+/tps - Returns the current Solana TPS <br />
+/lmnft (link to lmnft collection) - Scrapes relevant information about a LaunchMyNft Collection. <br />
+/start_raffle_watch - Starts the FFF raffle watch and begins sending embeds to the webhook. <br />
+/pumpwatch5m - Starts 5m pumpwatch <br />
+/pumpwatch10m - Starts 10m pumpwatch <br />
+/dailysol (bearer) - Scrapes daily mints from SOLDecoder 
 
 LaunchMyNFT New Collections Scraper:
 You can just replace the webhook on line 60, then run it via cmd. Fair warning this is a bit of a spammy feature, it sends a ton of embeds to the given channel.
