@@ -27,54 +27,6 @@ async def on_command_error(ctx, error):
         await ctx.send("Unknown command")
         print("Overseer Command Fail")
 
-@slash.slash(description="Kicks a member from the Server.")
-@commands.has_permissions(administrator=True)
-async def kick(ctx, user: discord.Member, *, reason="none"):
-    try:
-        await ctx.guild.kick(user)    
-        kickembed=discord.Embed(title=":eye: User Kicked", description=f"{user} has been kicked.")
-        kickembed.set_author(name="Overseer",
-                        icon_url="https://img.icons8.com/nolan/64/visible.png")
-        kickembed.set_footer(text="Created by colley#8131")
-        await ctx.send(embed=kickembed, hidden=True)
-        print(f"Overseer kicked {user}")
-    except Exception as e:
-        print('Overseer Unable to Kick User')
-
-@slash.slash(description="Bans a member from the server.")
-@commands.has_permissions(administrator=True)
-async def ban(ctx, user: discord.Member, *, reason="none"):
-    try:
-        await ctx.guild.ban(user)    
-        banembed=discord.Embed(title=":eye: User Banned", description=f"{user} has been kicked.")
-        banembed.set_author(name="Overseer",
-                        icon_url="https://img.icons8.com/nolan/64/visible.png")
-        banembed.set_footer(text="Created by colley#8131")
-        await ctx.send(embed=banembed, hidden=True)
-        print(f"Overseer kicked {user}")
-    except Exception as e:
-        print('Overseer Unable to Ban User')
-
-@slash.slash(description="Clears channel and replaces it.")
-@commands.has_permissions(administrator=True)
-async def clear(ctx, channel: discord.TextChannel = None):
-    if channel == None: 
-        await ctx.send("Invalid Channel")
-        return
-    clearembed=discord.Embed(title=":exclamation: Channel Cleared", description=f"#{channel.name} has been cleared.")
-    clearembed.set_author(name="Overseer",
-                        icon_url="https://img.icons8.com/nolan/64/visible.png")
-    clearembed.set_footer(text="Created by colley#8131")
-    clear_channel = discord.utils.get(ctx.guild.channels, name=channel.name)
-    if clear_channel is not None:
-        new_channel = await clear_channel.clone(reason="none")
-        await clear_channel.delete()
-        await new_channel.send(embed=clearembed)
-        print(f"Overseer cleared the {channel.name} channel", hidden=True)
-    else:
-        await ctx.send(f"No channel named {channel.name} was found!", hidden=True)
-        print(f"Overseer failed clear, invalid channel")
-
 @slash.slash(description="Returns info on a launchmynft mint.")
 @commands.has_permissions(administrator=True)
 async def checkcreator(ctx, url:str):
