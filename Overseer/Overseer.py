@@ -110,7 +110,7 @@ async def start_raffle_watch(ctx):
                 'content-type': 'text/plain;charset=UTF-8',
                 'origin': 'https://rafffle.famousfoxes.com',
                 'referer': 'https://rafffle.famousfoxes.com',
-                'cookie': 'session=629145c2-0fb0-4416-8452-4e39c1335ce8; cf_clearance=_E01Qs8uIHAvoPO3g6X4jaJAjqVQxOG2l.._NpQRGBc-1659639631-0-150',
+                'cookie': 'cf_clearance=ghbTJjVL7.FJD3SPvbu48rI.6wJ4obG3R6q9mzPjgcU-1661485308-0-150; session=f752922f-52cd-4258-bcd1-76a857ec414e',
                 'sec-fetch-dest': 'empty',
                 'sec-fetch-mode': 'cors',
                 'sec-fetch-site': 'same-origin',
