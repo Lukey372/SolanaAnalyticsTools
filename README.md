@@ -13,7 +13,6 @@ Administrator
 Commands:
 /checkcreator (link to lmnft collection) - Returns the creator of a LaunchMyNft Collection, this command exists to stop people from shilling their own mints in dao chats. <br />
 /tps - Returns the current Solana TPS <br />
-/lmnft (link to lmnft collection) - Scrapes relevant information about a LaunchMyNft Collection. <br />
 /start_raffle_watch - Starts the FFF raffle watch and begins sending embeds to the webhook. <br />
 /pumpwatch5m - Starts 5m pumpwatch <br />
 /pumpwatch10m - Starts 10m pumpwatch <br />
