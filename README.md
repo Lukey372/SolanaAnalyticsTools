@@ -20,7 +20,7 @@ Commands:
 /dailysol (bearer) - Scrapes daily mints from SOLDecoder 
 
 LaunchMyNFT New Collections Scraper:
-You can just replace the webhook on line 60, then run it via cmd. Fair warning this is a bit of a spammy feature, it sends a ton of embeds to the given channel.
+This has been removed due to a legal request
 
 Wallet-Monitor:
 You can run multiple instances of this at the same time. I'm going to commit to index.js after I finish writing this to make sure the sleep time won't get you ratelimited. Each instance of the console application needs to be ran after updating config.json. Each wallet tracked needs it's own webhook, or you can keep it all in one channel with different name configured.
